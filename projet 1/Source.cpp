@@ -242,6 +242,7 @@ void specialKeyDown(int key, int xx, int yy) {
 }
 
 // Fonction de gestion du clavier (touche speciale relachee)
+//bjr
 void releaseSpecialKey(int key, int x, int y) {
 
     switch (key) {
