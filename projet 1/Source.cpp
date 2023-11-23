@@ -329,74 +329,74 @@ void clicSouris(int button, int state, int x, int y) {
 }
 
 
-//int main(int argc, char** argv) {
-//    diamantCarre(tableau);
-//    // init GLUT and create window
-//    glutInit(&argc, argv);
-//    glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA);
-//    glutInitWindowPosition(100, 100);
-//    glutInitWindowSize(600, 600);
-//    glutCreateWindow("FPS Camera");
-//
-//    // enregistrement des callbacks d'affichage
-//    // de redimensionnement et d'idle
-//    glutDisplayFunc(affichageScene);
-//    glutReshapeFunc(redimensionner);
-//    glutIdleFunc(affichageScene);
-//
-//    // pour que l'on puisse rester appuye sur les touches
-//    glutIgnoreKeyRepeat(1);
-//
-//    // Declaration des callbacks clavier
-//    glutKeyboardFunc(clavier);
-//    glutKeyboardUpFunc(clavierUp);
-//    glutSpecialFunc(specialKeyDown);
-//    glutSpecialUpFunc(releaseSpecialKey);
-//
-//    // declarationdes callbacks souris
-//    glutMouseFunc(clicSouris);
-//    glutMotionFunc(deplacementSouris);
-//
-//    // on active le tampon de profondeur
-//    glEnable(GL_DEPTH_TEST);
-//
-//    // on initialise la position de la camera
-//    camPos = Vector3D(0, 0.3, 2);
-//
-//    // on initialise les vecteurs 'view'
-//    forwardView = Vector3D(0, 0, -1);
-//    upWorld = Vector3D(0, 1, 0);
-//    rightView = Vector3D(1, 0, 0);
-//
-//    // Pour le FPS mode
-//    forwardMove = Vector3D(0, 0, -1);
-//    rightMove = Vector3D(1, 0, 0);
-//
-//    // on initialise la cible a partir de la camera et du vecteur vision
-//    targetPos = camPos + forwardView;
-//
-//    // Initialisation des "constantes"
-//    moveSensitivity = 2.0f;
-//    mouseRotSensitivity = 0.001f;
-//
-//    // enter GLUT event processing cycle
-//    glutMainLoop();
-//
-//    return 1;
-//}
-
-int main() {
-    int taille = 513; // taille du tableau
-
-    vector<vector<float>> tableau(taille, vector<float>(taille, 0.0f)); //initialisation
-
+int main(int argc, char** argv) {
     diamantCarre(tableau);
+    // init GLUT and create window
+    glutInit(&argc, argv);
+    glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA);
+    glutInitWindowPosition(100, 100);
+    glutInitWindowSize(600, 600);
+    glutCreateWindow("FPS Camera");
 
-    for (int i = 0; i < taille; i++) { //afficher tableau
-        for (int j = 0; j < taille; j++) {
-            cout << tableau[i][j] << " ";
-        }
-        cout << endl;
-    }
+    // enregistrement des callbacks d'affichage
+    // de redimensionnement et d'idle
+    glutDisplayFunc(affichageScene);
+    glutReshapeFunc(redimensionner);
+    glutIdleFunc(affichageScene);
+
+    // pour que l'on puisse rester appuye sur les touches
+    glutIgnoreKeyRepeat(1);
+
+    // Declaration des callbacks clavier
+    glutKeyboardFunc(clavier);
+    glutKeyboardUpFunc(clavierUp);
+    glutSpecialFunc(specialKeyDown);
+    glutSpecialUpFunc(releaseSpecialKey);
+
+    // declarationdes callbacks souris
+    glutMouseFunc(clicSouris);
+    glutMotionFunc(deplacementSouris);
+
+    // on active le tampon de profondeur
+    glEnable(GL_DEPTH_TEST);
+
+    // on initialise la position de la camera
+    camPos = Vector3D(0, 0.3, 2);
+
+    // on initialise les vecteurs 'view'
+    forwardView = Vector3D(0, 0, -1);
+    upWorld = Vector3D(0, 1, 0);
+    rightView = Vector3D(1, 0, 0);
+
+    // Pour le FPS mode
+    forwardMove = Vector3D(0, 0, -1);
+    rightMove = Vector3D(1, 0, 0);
+
+    // on initialise la cible a partir de la camera et du vecteur vision
+    targetPos = camPos + forwardView;
+
+    // Initialisation des "constantes"
+    moveSensitivity = 2.0f;
+    mouseRotSensitivity = 0.001f;
+
+    // enter GLUT event processing cycle
+    glutMainLoop();
+
+    return 1;
 }
+
+//int main() {
+//    int taille = 513; // taille du tableau
+//
+//    vector<vector<float>> tableau(taille, vector<float>(taille, 0.0f)); //initialisation
+//
+//    diamantCarre(tableau);
+//
+//    for (int i = 0; i < taille; i++) { //afficher tableau
+//        for (int j = 0; j < taille; j++) {
+//            cout << tableau[i][j] << " ";
+//        }
+//        cout << endl;
+//    }
+//}
 

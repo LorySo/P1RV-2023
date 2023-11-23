@@ -1,0 +1,56 @@
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+#ajout perso
+*.log
+*.pdb
+*.idb
+*.lastbuilstate
+*.tlog
+*.ilk
+*.recipe
+*.ipch
+*.vsidx
+*.lock
+*.suo
+*.db
+*.bin
+*.opendb
+*.db-wal
+*.db-shm
+*db
+.vs/Bataille_Navale/v17/.suo
+.vs/Bataille_Navale/v17/.suo
+.vs/Bataille_Navale/v17/Browse.VC.db
+*.vcxproj
+*.filters
