@@ -390,48 +390,37 @@ void clicSouris(int button, int state, int x, int y) {
 #include <algorithm>
 
 
-std::vector<std::vector<int>> normalizeTo255(const std::vector<std::vector<float>>& input) {
-    // Recherche des valeurs min et max dans le tableau
-    float minValue = input[0][0];
-    float maxValue = input[0][0];
-
-    for (const auto& row : input) {
+vector<vector<int>> normaliser255(vector<vector<float>>& tab) {
+    float minVal = tab[0][0];  // Recherche val min et max dans le tableau
+    float maxVal = tab[0][0];
+    for (const auto& row : tab) {
         for (float value : row) {
-            minValue = min(minValue, value);
-            maxValue = max(maxValue, value);
+            minVal = min(minVal, value);
+            maxVal = max(maxVal, value);
         }
     }
-
-    // Normalisation des valeurs entre 0 et 255
-    std::vector<std::vector<int>> result;
-
-    for (const auto& row : input) {
-        std::vector<int> normalizedRow;
+    vector<vector<int>> tabNorme;
+    for (const auto& row : tab) {
+        vector<int> vecNormal;
         for (float value : row) {
-            int normalizedValue = static_cast<int>((value - minValue) / (maxValue - minValue) * 255);
-            normalizedRow.push_back(normalizedValue);
+            int valNormal = static_cast<int>((value - minVal) / (maxVal - minVal) * 255);
+            vecNormal.push_back(valNormal);
         }
-        result.push_back(normalizedRow);
+        tabNorme.push_back(vecNormal);
     }
-
-    return result;
+    return tabNorme;
 }
 
 
 void display() {
     glClear(GL_COLOR_BUFFER_BIT);
-
-    // Exemple de tableau de valeurs entre 0 et 255 (vous devrez adapter cela à vos données)
     diamantCarre(tableau);
-    std::vector<std::vector<int>> tableau2 = normalizeTo255(tableau);
-
-    std::vector<int> tableau_lineaire;
+    vector<vector<int>> tableau2 = normaliser255(tableau);
+    vector<int> tableau_lineaire;
     for (const auto& ligne : tableau2) {
         tableau_lineaire.insert(tableau_lineaire.end(), ligne.begin(), ligne.end());
     }
-
     glDrawPixels(513, 513, GL_LUMINANCE, GL_UNSIGNED_BYTE, tableau_lineaire.data());
-
     glutSwapBuffers();
 }
 
