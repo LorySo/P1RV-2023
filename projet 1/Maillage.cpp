@@ -5,13 +5,11 @@
 #include"Vector3D.h"
 
 
-void calcColor(float hauteur, float& r, float& g, int maxh) {
+void calcColor(float hauteur, float& r, float& g, float& b, int maxh) {
     float hauteurNormalisee = hauteur / maxh;
-
-    // Utilisez la hauteur normalisée pour déterminer la couleur
-    r = 1.0f - hauteurNormalisee;  // Rouge en haut
-    g = hauteurNormalisee;         // Vert en bas
-    //b = 0.0f;                      // Bleu à voir s'il en faut?
+    r = hauteurNormalisee;
+    g = 1.0f - hauteurNormalisee;
+    b = 1.0f;
 }
 
 struct Triangle {
@@ -40,9 +38,9 @@ void triangles(const vector<vector<float>>& tab, int terrainSize, float echelle,
             triangle1.z3 = (z + 1) * echelle;
 
             //Mise en place des couleurs
-            calcColor(triangle1.y1, triangle1.r1, triangle1.g1, hautMax);
-            calcColor(triangle1.y2, triangle1.r2, triangle1.g2, hautMax);
-            calcColor(triangle1.y3, triangle1.r3, triangle1.g3, hautMax);
+            calcColor(triangle1.y1, triangle1.r1, triangle1.g1, triangle1.b1, hautMax);
+            calcColor(triangle1.y2, triangle1.r2, triangle1.g2, triangle1.b2, hautMax);
+            calcColor(triangle1.y3, triangle1.r3, triangle1.g3, triangle1.b3, hautMax);
             
             coloredTriangles.push_back(triangle1);
 
@@ -58,9 +56,9 @@ void triangles(const vector<vector<float>>& tab, int terrainSize, float echelle,
             triangle2.z3 = (z + 1) * echelle;
 
             //Mise en place des couleurs
-            calcColor(triangle2.y1, triangle2.r1, triangle2.g1, hautMax);
-            calcColor(triangle2.y2, triangle2.r2, triangle2.g2, hautMax);
-            calcColor(triangle2.y3, triangle2.r3, triangle2.g3, hautMax);
+            calcColor(triangle2.y1, triangle2.r1, triangle2.g1, triangle2.b1, hautMax);
+            calcColor(triangle2.y2, triangle2.r2, triangle2.g2, triangle2.b2, hautMax);
+            calcColor(triangle2.y3, triangle2.r3, triangle2.g3, triangle2.b3, hautMax);
 
             coloredTriangles.push_back(triangle2);
         }
