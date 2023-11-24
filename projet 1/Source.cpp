@@ -330,111 +330,111 @@ void clicSouris(int button, int state, int x, int y) {
 }
 
 
-//int main(int argc, char** argv) {
-//    diamantCarre(tableau);
-//    // init GLUT and create window
-//    glutInit(&argc, argv);
-//    glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA);
-//    glutInitWindowPosition(100, 100);
-//    glutInitWindowSize(600, 600);
-//    glutCreateWindow("FPS Camera");
-//
-//    // enregistrement des callbacks d'affichage
-//    // de redimensionnement et d'idle
-//    glutDisplayFunc(affichageScene);
-//    glutReshapeFunc(redimensionner);
-//    glutIdleFunc(affichageScene);
-//
-//    // pour que l'on puisse rester appuye sur les touches
-//    glutIgnoreKeyRepeat(1);
-//
-//    // Declaration des callbacks clavier
-//    glutKeyboardFunc(clavier);
-//    glutKeyboardUpFunc(clavierUp);
-//    glutSpecialFunc(specialKeyDown);
-//    glutSpecialUpFunc(releaseSpecialKey);
-//
-//    // declarationdes callbacks souris
-//    glutMouseFunc(clicSouris);
-//    glutMotionFunc(deplacementSouris);
-//
-//    // on active le tampon de profondeur
-//    glEnable(GL_DEPTH_TEST);
-//
-//    // on initialise la position de la camera
-//    camPos = Vector3D(0, 0.3, 2);
-//
-//    // on initialise les vecteurs 'view'
-//    forwardView = Vector3D(0, 0, -1);
-//    upWorld = Vector3D(0, 1, 0);
-//    rightView = Vector3D(1, 0, 0);
-//
-//    // Pour le FPS mode
-//    forwardMove = Vector3D(0, 0, -1);
-//    rightMove = Vector3D(1, 0, 0);
-//
-//    // on initialise la cible a partir de la camera et du vecteur vision
-//    targetPos = camPos + forwardView;
-//
-//    // Initialisation des "constantes"
-//    moveSensitivity = 2.0f;
-//    mouseRotSensitivity = 0.001f;
-//
-//    // enter GLUT event processing cycle
-//    glutMainLoop();
-//
-//    return 1;
-//}
-
-
-#include <algorithm>
-
-
-vector<vector<int>> normaliser255(vector<vector<float>>& tab) {
-    float minVal = tab[0][0];  // Recherche val min et max dans le tableau
-    float maxVal = tab[0][0];
-    for (const auto& row : tab) {
-        for (float value : row) {
-            minVal = min(minVal, value);
-            maxVal = max(maxVal, value);
-        }
-    }
-    vector<vector<int>> tabNorme;
-    for (const auto& row : tab) {
-        vector<int> vecNormal;
-        for (float value : row) {
-            int valNormal = static_cast<int>((value - minVal) / (maxVal - minVal) * 255);
-            vecNormal.push_back(valNormal);
-        }
-        tabNorme.push_back(vecNormal);
-    }
-    return tabNorme;
-}
-
-
-void display() {
-    glClear(GL_COLOR_BUFFER_BIT);
-    diamantCarre(tableau);
-    vector<vector<int>> tableau2 = normaliser255(tableau);
-    vector<int> tableau_lineaire;
-    for (const auto& ligne : tableau2) {
-        tableau_lineaire.insert(tableau_lineaire.end(), ligne.begin(), ligne.end());
-    }
-    glDrawPixels(513, 513, GL_LUMINANCE, GL_UNSIGNED_BYTE, tableau_lineaire.data());
-    glutSwapBuffers();
-}
-
 int main(int argc, char** argv) {
+    diamantCarre(tableau);
+    // init GLUT and create window
     glutInit(&argc, argv);
-    glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
-    glutCreateWindow("OpenGL Grayscale Gradient");
+    glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA);
+    glutInitWindowPosition(100, 100);
+    glutInitWindowSize(600, 600);
+    glutCreateWindow("FPS Camera");
 
-    glMatrixMode(GL_PROJECTION);
-    glLoadIdentity();
-    gluOrtho2D(0, 513, 0, 513);
+    // enregistrement des callbacks d'affichage
+    // de redimensionnement et d'idle
+    glutDisplayFunc(affichageScene);
+    glutReshapeFunc(redimensionner);
+    glutIdleFunc(affichageScene);
 
-    glutDisplayFunc(display);
+    // pour que l'on puisse rester appuye sur les touches
+    glutIgnoreKeyRepeat(1);
+
+    // Declaration des callbacks clavier
+    glutKeyboardFunc(clavier);
+    glutKeyboardUpFunc(clavierUp);
+    glutSpecialFunc(specialKeyDown);
+    glutSpecialUpFunc(releaseSpecialKey);
+
+    // declarationdes callbacks souris
+    glutMouseFunc(clicSouris);
+    glutMotionFunc(deplacementSouris);
+
+    // on active le tampon de profondeur
+    glEnable(GL_DEPTH_TEST);
+
+    // on initialise la position de la camera
+    camPos = Vector3D(0, 0.3, 2);
+
+    // on initialise les vecteurs 'view'
+    forwardView = Vector3D(0, 0, -1);
+    upWorld = Vector3D(0, 1, 0);
+    rightView = Vector3D(1, 0, 0);
+
+    // Pour le FPS mode
+    forwardMove = Vector3D(0, 0, -1);
+    rightMove = Vector3D(1, 0, 0);
+
+    // on initialise la cible a partir de la camera et du vecteur vision
+    targetPos = camPos + forwardView;
+
+    // Initialisation des "constantes"
+    moveSensitivity = 2.0f;
+    mouseRotSensitivity = 0.001f;
+
+    // enter GLUT event processing cycle
     glutMainLoop();
 
-    return 0;
+    return 1;
 }
+
+
+//#include <algorithm>
+//
+//
+//vector<vector<int>> normaliser255(vector<vector<float>>& tab) {
+//    float minVal = tab[0][0];  // Recherche val min et max dans le tableau
+//    float maxVal = tab[0][0];
+//    for (const auto& row : tab) {
+//        for (float value : row) {
+//            minVal = min(minVal, value);
+//            maxVal = max(maxVal, value);
+//        }
+//    }
+//    vector<vector<int>> tabNorme;
+//    for (const auto& row : tab) {
+//        vector<int> vecNormal;
+//        for (float value : row) {
+//            int valNormal = static_cast<int>((value - minVal) / (maxVal - minVal) * 255);
+//            vecNormal.push_back(valNormal);
+//        }
+//        tabNorme.push_back(vecNormal);
+//    }
+//    return tabNorme;
+//}
+//
+//
+//void display() {
+//    glClear(GL_COLOR_BUFFER_BIT);
+//    diamantCarre(tableau);
+//    vector<vector<int>> tableau2 = normaliser255(tableau);
+//    vector<int> tableau_lineaire;
+//    for (const auto& ligne : tableau2) {
+//        tableau_lineaire.insert(tableau_lineaire.end(), ligne.begin(), ligne.end());
+//    }
+//    glDrawPixels(513, 513, GL_LUMINANCE, GL_UNSIGNED_BYTE, tableau_lineaire.data());
+//    glutSwapBuffers();
+//}
+//
+//int main(int argc, char** argv) {
+//    glutInit(&argc, argv);
+//    glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
+//    glutCreateWindow("OpenGL Grayscale Gradient");
+//
+//    glMatrixMode(GL_PROJECTION);
+//    glLoadIdentity();
+//    gluOrtho2D(0, 513, 0, 513);
+//
+//    glutDisplayFunc(display);
+//    glutMainLoop();
+//
+//    return 0;
+//}
