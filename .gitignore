@@ -49,8 +49,7 @@
 *.db-wal
 *.db-shm
 *db
-.vs/Bataille_Navale/v17/.suo
-.vs/Bataille_Navale/v17/.suo
-.vs/Bataille_Navale/v17/Browse.VC.db
+.vs/projet1/v16/.suo
+.vs/projet1/v16/Browse.VC.db
 *.vcxproj
 *.filters
