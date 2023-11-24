@@ -1,13 +1,27 @@
-<<<<<<< Updated upstream
-﻿  Maillage.cpp
+﻿  DiamantCarre.cpp
+C:\Users\lory5\Downloads\Github\P1RV-bon-\projet 1\DiamantCarre.cpp(24,37): warning C4244: '=' : conversion de 'int' en '_Ty', perte possible de données
+          with
+          [
+              _Ty=float
+          ]
+C:\Users\lory5\Downloads\Github\P1RV-bon-\projet 1\DiamantCarre.cpp(29,41): warning C4244: '=' : conversion de 'int' en '_Ty', perte possible de données
+          with
+          [
+              _Ty=float
+          ]
+C:\Users\lory5\Downloads\Github\P1RV-bon-\projet 1\DiamantCarre.cpp(34,41): warning C4244: '=' : conversion de 'int' en '_Ty', perte possible de données
+          with
+          [
+              _Ty=float
+          ]
+C:\Users\lory5\Downloads\Github\P1RV-bon-\projet 1\DiamantCarre.cpp(39,45): warning C4244: '=' : conversion de 'int' en '_Ty', perte possible de données
+          with
+          [
+              _Ty=float
+          ]
+C:\Users\lory5\Downloads\Github\P1RV-bon-\projet 1\DiamantCarre.cpp(41,41): warning C4244: '=' : conversion de 'int' en '_Ty', perte possible de données
+          with
+          [
+              _Ty=float
+          ]
   projet 1.vcxproj -> C:\Users\lory5\Downloads\Github\P1RV-bon-\Debug\projet 1.exe
-=======
-﻿  BruitPerlin.cpp
-  DiamantCarre.cpp
-  Maillage.cpp
-C:\Users\lory5\Downloads\Github\P1RV-bon-\projet 1\Maillage.cpp(2,10): fatal error C1083: Impossible d'ouvrir le fichier include : 'GLUT.h' : No such file or directory
-  Source.cpp
-C:\Users\lory5\Downloads\Github\P1RV-bon-\projet 1\Source.cpp(11,10): fatal error C1083: Impossible d'ouvrir le fichier include : 'GLUT.h' : No such file or directory
-  Vector3D.cpp
-  Génération de code en cours...
->>>>>>> Stashed changes

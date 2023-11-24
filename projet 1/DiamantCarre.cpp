@@ -9,8 +9,8 @@ using namespace std;
 
 // fonction pour générer un nombre aléatoire qui a pour valeur maximale le paramètre max 
 int genererNombreAleatoire(int max) {
-    std::srand(static_cast<unsigned int>(std::time(nullptr)));
-    int nombreAleatoire = std::rand() % (max + 1);
+    srand(static_cast<unsigned int>(time(nullptr)));
+    int nombreAleatoire = rand() % (max + 1);
     return nombreAleatoire;
 }
 
@@ -20,28 +20,25 @@ void diamantCarre(vector<vector<float>>& t) {
     /*time_t currentTime = time(nullptr);
     srand(static_cast<unsigned int>(currentTime));
     int randomNumber = rand();*/
-    int randomNumber = genererNombreAleatoire(maxh);
 
-
-    t[0][0] = static_cast<float>(randomNumber % (2 * maxh));      //coins
+    t[0][0] = genererNombreAleatoire(maxh);
+    //t[0][0] = static_cast<float>(randomNumber % (maxh));      // premiers coins
     /*currentTime = time(nullptr);
     srand(static_cast<unsigned int>(currentTime));
     randomNumber = rand();*/
-    randomNumber = genererNombreAleatoire(maxh);
+    t[0][h - 1] = genererNombreAleatoire(maxh);
 
-    t[0][h - 1] = static_cast<float>(randomNumber % (2 * maxh));
     /*currentTime = time(nullptr);
     srand(static_cast<unsigned int>(currentTime));
     randomNumber = rand();*/
-    randomNumber = genererNombreAleatoire(maxh);
+    t[0][h - 1] = genererNombreAleatoire(maxh);
 
-    t[h - 1][h - 1] = static_cast<float>(randomNumber % (2 * maxh));
     /*currentTime = time(nullptr);
       srand(static_cast<unsigned int>(currentTime));
       randomNumber = rand();*/
-    randomNumber = genererNombreAleatoire(maxh);
+    t[h - 1][h - 1] = genererNombreAleatoire(maxh);
 
-    t[h - 1][0] = static_cast<float>(randomNumber % (2 * maxh));
+    t[h - 1][0] = genererNombreAleatoire(maxh);
 
     int s = h - 1;
 
@@ -55,8 +52,8 @@ void diamantCarre(vector<vector<float>>& t) {
                 /*currentTime = time(nullptr);
     srand(static_cast<unsigned int>(currentTime));
     randomNumber = rand();*/
-                randomNumber = genererNombreAleatoire(maxh);
-                t[i][j] = moy + static_cast<float>(randomNumber % (2 * id) - id);
+                t[i][j] = moy + genererNombreAleatoire(2 * id) - id;
+                //t[i][j] = moy + static_cast<float>(randomNumber % (2 * id) - id);
             }
         }
 
@@ -94,14 +91,14 @@ void diamantCarre(vector<vector<float>>& t) {
                     som += t[i][y + id];
                     n++;
                 }
-                time_t currentTime = time(nullptr);
+                //time_t currentTime = time(nullptr);
 
                 /*currentTime = time(nullptr);
      srand(static_cast<unsigned int>(currentTime));
      randomNumber = rand();*/
-                randomNumber = genererNombreAleatoire(maxh);
 
-                t[i][y] = som / n + static_cast<float>(randomNumber % (2 * id) - id);
+                //t[i][y] = som / n + static_cast<float>(randomNumber % (2 * id) - id);
+                t[i][y] = som / n + genererNombreAleatoire(2*id)-id;
             }
         }
         s = id;

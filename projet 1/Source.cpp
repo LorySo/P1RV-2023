@@ -387,17 +387,13 @@ int main(int argc, char** argv) {
 }
 
 //int main() {
-//    int taille = 513; // taille du tableau
-//
-//    vector<vector<float>> tableau(taille, vector<float>(taille, 0.0f)); //initialisation
-//
 //    diamantCarre(tableau);
 //
-//    for (int i = 0; i < taille; i++) { //afficher tableau
-//        for (int j = 0; j < taille; j++) {
+//    for (int i = 0; i < terrainSize; i++) { //afficher tableau
+//        for (int j = 0; j < terrainSize; j++) {
 //            cout << tableau[i][j] << " ";
 //        }
 //        cout << endl;
 //    }
 //}
-
+//
