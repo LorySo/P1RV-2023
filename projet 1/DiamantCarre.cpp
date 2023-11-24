@@ -16,30 +16,30 @@ int genererNombreAleatoire(int max) {
 
 void diamantCarre(vector<vector<float>>& t) {
     int h = t.size();
-    int maxh = 10; //hauteur max de la map
+    int maxh = 50; //hauteur max de la map
     /*time_t currentTime = time(nullptr);
     srand(static_cast<unsigned int>(currentTime));
     int randomNumber = rand();*/
-    int randomNumber = genererNombreAleatoire(10);
+    int randomNumber = genererNombreAleatoire(maxh);
 
 
     t[0][0] = static_cast<float>(randomNumber % (2 * maxh));      //coins
     /*currentTime = time(nullptr);
     srand(static_cast<unsigned int>(currentTime));
     randomNumber = rand();*/
-    randomNumber = genererNombreAleatoire(10);
+    randomNumber = genererNombreAleatoire(maxh);
 
     t[0][h - 1] = static_cast<float>(randomNumber % (2 * maxh));
     /*currentTime = time(nullptr);
     srand(static_cast<unsigned int>(currentTime));
     randomNumber = rand();*/
-    randomNumber = genererNombreAleatoire(10);
+    randomNumber = genererNombreAleatoire(maxh);
 
     t[h - 1][h - 1] = static_cast<float>(randomNumber % (2 * maxh));
     /*currentTime = time(nullptr);
       srand(static_cast<unsigned int>(currentTime));
       randomNumber = rand();*/
-    randomNumber = genererNombreAleatoire(10);
+    randomNumber = genererNombreAleatoire(maxh);
 
     t[h - 1][0] = static_cast<float>(randomNumber % (2 * maxh));
 
@@ -55,7 +55,7 @@ void diamantCarre(vector<vector<float>>& t) {
                 /*currentTime = time(nullptr);
     srand(static_cast<unsigned int>(currentTime));
     randomNumber = rand();*/
-                randomNumber = genererNombreAleatoire(10);
+                randomNumber = genererNombreAleatoire(maxh);
                 t[i][j] = moy + static_cast<float>(randomNumber % (2 * id) - id);
             }
         }
@@ -99,7 +99,7 @@ void diamantCarre(vector<vector<float>>& t) {
                 /*currentTime = time(nullptr);
      srand(static_cast<unsigned int>(currentTime));
      randomNumber = rand();*/
-                randomNumber = genererNombreAleatoire(10);
+                randomNumber = genererNombreAleatoire(maxh);
 
                 t[i][y] = som / n + static_cast<float>(randomNumber % (2 * id) - id);
             }

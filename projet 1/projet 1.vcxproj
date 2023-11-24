@@ -152,14 +152,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BruitPerlin.cpp" />
-    <ClCompile Include="diamcarre.cpp" />
+    <ClCompile Include="DiamantCarre.cpp" />
     <ClCompile Include="Maillage.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Vector3D.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BruitPerlin.h" />
-    <ClInclude Include="diamcarre.h" />
+    <ClInclude Include="DiamantCarre.h" />
     <ClInclude Include="Maillage.h" />
     <ClInclude Include="Vector3D.h" />
   </ItemGroup>

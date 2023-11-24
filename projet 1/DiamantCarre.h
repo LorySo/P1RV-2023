@@ -1,5 +1,5 @@
-#ifndef diamcarre_h
-#define diamcarre_h
+#ifndef DiamantCarre_h
+#define DiamantCarre_h
 #include <iostream>
 #include <vector>
 

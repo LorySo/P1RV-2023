@@ -2,7 +2,7 @@
 #include <vector>
 
 #include <cstdlib> //rand()
-#include "diamcarre.h"
+#include "DiamantCarre.h"
 
 using namespace std;
 

@@ -1,7 +1,7 @@
 //#include <GL/gl.h>
 #include <GLUT.h>
 #include<vector>
-#include"diamcarre.h"
+#include"DiamantCarre.h"
 #include"Vector3D.h"
 
 

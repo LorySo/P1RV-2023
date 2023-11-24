@@ -10,7 +10,7 @@ using namespace std;
 #include <GL/gl.h>
 #include <GLUT.h>
 
-#include "diamcarre.h"
+#include "DiamantCarre.h"
 #include"Maillage.h"
 
 
