@@ -385,7 +385,7 @@ int main(int argc, char** argv) {
     moveSensitivity = 2.0f;
     mouseRotSensitivity = 0.001f;
 
-
+    // Initialisation de la map
     srand(static_cast<unsigned int>(time(nullptr)));
     diamantCarre(tableau, maxh);
 

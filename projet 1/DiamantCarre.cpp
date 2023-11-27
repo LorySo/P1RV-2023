@@ -12,8 +12,6 @@ int genererNombreAleatoire(int max) {
     return rand() % (max + 1);
 }
 
-
-
 void diamantCarre(vector<vector<float>>& t, int maxh) {
     int h = t.size(); //hauteur max de la map
     /*time_t currentTime = time(nullptr);
@@ -22,11 +20,6 @@ void diamantCarre(vector<vector<float>>& t, int maxh) {
 
     t[0][0] = genererNombreAleatoire(maxh);
     //t[0][0] = static_cast<float>(randomNumber % (maxh));      // premiers coins
-    /*currentTime = time(nullptr);
-    srand(static_cast<unsigned int>(currentTime));
-    randomNumber = rand();*/
-    t[0][h - 1] = genererNombreAleatoire(maxh);
-
     /*currentTime = time(nullptr);
     srand(static_cast<unsigned int>(currentTime));
     randomNumber = rand();*/
