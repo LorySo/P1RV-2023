@@ -7,16 +7,15 @@
 
 using namespace std;
 
-// fonction pour générer un nombre aléatoire qui a pour valeur maximale le paramètre max 
+// fonction pour générer un nombre aléatoire qui a pour valeur maximale max 
 int genererNombreAleatoire(int max) {
-    srand(static_cast<unsigned int>(time(nullptr)));
-    int nombreAleatoire = rand() % (max + 1);
-    return nombreAleatoire;
+    return rand() % (max + 1);
 }
 
-void diamantCarre(vector<vector<float>>& t) {
-    int h = t.size();
-    int maxh = 50; //hauteur max de la map
+
+
+void diamantCarre(vector<vector<float>>& t, int maxh) {
+    int h = t.size(); //hauteur max de la map
     /*time_t currentTime = time(nullptr);
     srand(static_cast<unsigned int>(currentTime));
     int randomNumber = rand();*/
@@ -98,7 +97,7 @@ void diamantCarre(vector<vector<float>>& t) {
      randomNumber = rand();*/
 
                 //t[i][y] = som / n + static_cast<float>(randomNumber % (2 * id) - id);
-                t[i][y] = som / n + genererNombreAleatoire(2*id)-id;
+                t[i][y] = som / n*1.0 + genererNombreAleatoire(2*id)-id;
             }
         }
         s = id;

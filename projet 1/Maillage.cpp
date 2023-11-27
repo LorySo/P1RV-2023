@@ -5,38 +5,12 @@
 #include"Vector3D.h"
 
 
-//const int terrainSize = 10;  //taille de la map
-//const float echelle = 0.2;
-//vector<vector<float>> tableau(terrainSize, vector<float>(terrainSize, 0.0f)); //matrice des hauteurs
-
-//void genererTerrain() {
-//    diamantCarre(tableau);
-//}
-//void triangles(vector<vector<float>> tab, int terrainSize, float echelle) {
-//    //diamantCarre(tableau);
-//    glBegin(GL_TRIANGLES);
-//    for (int x = 0; x < terrainSize - 1; x++) {
-//        for (int z = 0; z < terrainSize - 1; z++) {
-//            // Triangle 1
-//            glColor3f(1.0, 0.0, 0.0);
-//            glVertex3f(x * echelle, tab[x][z], z * echelle);
-//            glColor3f(0.0, 1.0, 0.0);
-//            glVertex3f((x + 1) * echelle, tab[x + 1][z], z * echelle);
-//            glColor3f(0.0, 0.0, 1.0);
-//            glVertex3f(x * echelle, tab[x][z + 1], (z + 1) * echelle);
-//
-//            // Triangle 2
-//            glColor3f(1.0, 0.0, 0.0);
-//            glVertex3f(x * echelle, tab[x][z + 1], (z + 1) * echelle);
-//            glColor3f(0.0, 0.0, 1.0);
-//            glVertex3f((x + 1) * echelle, tab[x + 1][z], z * echelle);
-//            glColor3f(1.0, 1.0, 0.0);
-//            glVertex3f((x + 1) * echelle, tab[x + 1][z + 1], (z + 1) * echelle);
-//        }
-//    }
-//    glEnd();
-//}
-
+void calcColor(float hauteur, float& r, float& g, float& b, int maxh) {
+    float hauteurNormalisee = hauteur / maxh;
+    r = hauteurNormalisee;
+    g = (1.0f - hauteurNormalisee);  // mettre des variables pr les para
+    b = 0.0f;
+}
 
 struct Triangle {
     float x1 = 0.0, y1 = 0.0, z1 = 0.0;
@@ -64,44 +38,10 @@ void triangles(const vector<vector<float>>& tab, int terrainSize, float echelle,
             triangle1.z3 = (z + 1) * echelle;
 
             //Mise en place des couleurs
-            //sommet 1
-            if (triangle1.y1 / hautMax * 255 > 10) {
-                triangle1.r1 = (255 * (triangle1.y1 / hautMax) - 10) * 255 / 245;
-            }
-            if (triangle1.y1 / hautMax * 255 < 128) {
-                triangle1.g1 = (127 - triangle1.y1 / hautMax) * 255 * (255 / 127);
-            }
-            else if (triangle1.y1 / hautMax * 255 > 245) {
-                triangle1.g1 = (255 * (triangle1.y1 / hautMax) - 10) * 255 / 245;
-                triangle1.b1 = (255 * (triangle1.y1 / hautMax) - 10) * 255 / 245;
-            }
-
-            //sommet 2
-
-            if (triangle1.y2 / hautMax * 255 > 10) {
-                triangle1.r2 = (255 * (triangle1.y2 / hautMax) - 10) * 255 / 245;
-            }
-            if (triangle1.y2 / hautMax * 255 < 128) {
-                triangle1.g2 = (127 - triangle1.y2 / hautMax) * 255 * (255 / 127);
-            }
-            else if (triangle1.y1 / hautMax * 255 > 245) {
-                triangle1.g2 = (255 * (triangle1.y2 / hautMax) - 10) * 255 / 245;
-                triangle1.b2 = (255 * (triangle1.y2 / hautMax) - 10) * 255 / 245;
-            }
-
-            //sommet 3
-            if (triangle1.y3 / hautMax * 255 > 10) {
-                triangle1.r3 = (255 * (triangle1.y3 / hautMax) - 10) * 255 / 245;
-            }
-            if (triangle1.y3 / hautMax * 255 < 128) {
-                triangle1.g3 = (127 - triangle1.y3 / hautMax) * 255 * (255 / 127);
-            }
-            else if (triangle1.y3 / hautMax * 255 > 245) {
-                triangle1.g3 = (255 * (triangle1.y3 / hautMax) - 10) * 255 / 245;
-                triangle1.b3 = (255 * (triangle1.y3 / hautMax) - 10) * 255 / 245;
-            }
-
-
+            calcColor(triangle1.y1, triangle1.r1, triangle1.g1, triangle1.b1, hautMax);
+            calcColor(triangle1.y2, triangle1.r2, triangle1.g2, triangle1.b2, hautMax);
+            calcColor(triangle1.y3, triangle1.r3, triangle1.g3, triangle1.b3, hautMax);
+            
             coloredTriangles.push_back(triangle1);
 
             Triangle triangle2;
@@ -116,50 +56,15 @@ void triangles(const vector<vector<float>>& tab, int terrainSize, float echelle,
             triangle2.z3 = (z + 1) * echelle;
 
             //Mise en place des couleurs
-            //sommet 1
-            if (triangle2.y1 / hautMax * 255 > 10) {
-                triangle2.r1 = (255 * (triangle2.y1 / hautMax) - 10) * 255 / 245;
-            }
-            if (triangle2.y1 / hautMax * 255 < 128) {
-                triangle2.g1 = (127 - triangle2.y1 / hautMax) * 255 * (255 / 127);
-            }
-            else if (triangle2.y1 / hautMax * 255 > 245) {
-                triangle2.g1 = (255 * (triangle2.y1 / hautMax) - 10) * 255 / 245;
-                triangle2.b1 = (255 * (triangle2.y1 / hautMax) - 10) * 255 / 245;
-            }
-
-            //sommet 2
-            if (triangle2.y2 / hautMax * 255 > 10) {
-                triangle2.r2 = (255 * (triangle2.y2 / hautMax) - 10) * 255 / 245;
-            }
-            if (triangle2.y2 / hautMax * 255 < 128) {
-                triangle2.g2 = (127 - triangle2.y2 / hautMax) * 255 * (255 / 127);
-            }
-            else if (triangle2.y1 / hautMax * 255 > 245) {
-                triangle2.g2 = (255 * (triangle2.y2 / hautMax) - 10) * 255 / 245;
-                triangle2.b2 = (255 * (triangle2.y2 / hautMax) - 10) * 255 / 245;
-            }
-
-            //sommet 3
-            if (triangle2.y3 / hautMax * 255 > 10) {
-                triangle2.r3 = (255 * (triangle2.y3 / hautMax) - 10) * 255 / 245;
-            }
-            if (triangle2.y3 / hautMax * 255 < 128) {
-                triangle2.g3 = (127 - triangle2.y3 / hautMax) * 255 * (255 / 127);
-            }
-            else if (triangle2.y3 / hautMax * 255 > 245) {
-                triangle2.g3 = (255 * (triangle2.y3 / hautMax) - 10) * 255 / 245;
-                triangle2.b3 = (255 * (triangle2.y3 / hautMax) - 10) * 255 / 245;
-            }
-
+            calcColor(triangle2.y1, triangle2.r1, triangle2.g1, triangle2.b1, hautMax);
+            calcColor(triangle2.y2, triangle2.r2, triangle2.g2, triangle2.b2, hautMax);
+            calcColor(triangle2.y3, triangle2.r3, triangle2.g3, triangle2.b3, hautMax);
 
             coloredTriangles.push_back(triangle2);
         }
     }
-
-    // Dessiner les triangles avec leurs couleurs
     glBegin(GL_TRIANGLES);
-    for (const Triangle& triangle : coloredTriangles) {
+    for (const Triangle& triangle : coloredTriangles) { // le transformer en fonction
         glColor3f(triangle.r1, triangle.g1, triangle.b1);
         glVertex3f(triangle.x1, triangle.y1, triangle.z1);
         glColor3f(triangle.r2, triangle.g2, triangle.b2);
