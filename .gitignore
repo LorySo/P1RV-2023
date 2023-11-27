@@ -53,3 +53,9 @@
 .vs/projet1/v16/Browse.VC.db
 *.vcxproj
 *.filters
+*.tlog
+*.log
+*.ilk
+*.pdb
+*.exe
+
