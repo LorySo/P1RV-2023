@@ -8,8 +8,8 @@
 void calcColor(float hauteur, float& r, float& g, float& b, int maxh) {
     float hauteurNormalisee = hauteur / maxh;
     r = hauteurNormalisee;
-    g = 1.0f - hauteurNormalisee;
-    b = 1.0f;
+    g = (1.0f - hauteurNormalisee);  // mettre des variables pr les para
+    b = 0.0f;
 }
 
 struct Triangle {
@@ -64,7 +64,7 @@ void triangles(const vector<vector<float>>& tab, int terrainSize, float echelle,
         }
     }
     glBegin(GL_TRIANGLES);
-    for (const Triangle& triangle : coloredTriangles) {
+    for (const Triangle& triangle : coloredTriangles) { // le transformer en fonction
         glColor3f(triangle.r1, triangle.g1, triangle.b1);
         glVertex3f(triangle.x1, triangle.y1, triangle.z1);
         glColor3f(triangle.r2, triangle.g2, triangle.b2);

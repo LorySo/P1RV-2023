@@ -14,10 +14,10 @@ using namespace std;
 #include"Maillage.h"
 
 
-const int terrainSize = 513;  //taille de la map
+const int terrainSize = 65;  //taille de la map
 const float echelle = 0.2;
 vector<vector<float>> tableau(terrainSize, vector<float>(terrainSize, 0.0f)); //matrice des hauteurs à 0
-
+int maxh = 5;
 
 // angles de rotation (coordonnees spheriques) pour calculer le vecteur vision de la camera
 float angleTheta = 0.0f;
@@ -55,8 +55,8 @@ float deltaMove = 0;
 float deltaStrafe = 0.0f;
 
 // coordonnes de la souris au moment du clic gauche
-int xOrigin = -1;
-int yOrigin = -1;
+int xOrigin;
+int yOrigin;
 
 // Fonction de redimensionnement de la fenetre
 void redimensionner(int w, int h) {
@@ -125,11 +125,17 @@ void affichageScene() {
 
 
     // On dessine les triangles
-    triangles(tableau, terrainSize, echelle, 10.0);
+    triangles(tableau, terrainSize, echelle, maxh);
 
     // on echange les tampons d'affichage
     glutSwapBuffers();
 }
+
+void sliderCallback(int value) {
+    maxh = static_cast<float>(value);  // Met à jour la hauteur maximale
+    glutPostRedisplay();  // Indique que la fenêtre doit être redessinée
+}
+
 
 // Fonction de gestion du clavier (touche enfoncee)
 void clavier(unsigned char key, int xx, int yy) {
@@ -331,7 +337,6 @@ void clicSouris(int button, int state, int x, int y) {
 
 
 int main(int argc, char** argv) {
-    diamantCarre(tableau);
     // init GLUT and create window
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA);
@@ -380,6 +385,10 @@ int main(int argc, char** argv) {
     moveSensitivity = 2.0f;
     mouseRotSensitivity = 0.001f;
 
+
+    srand(static_cast<unsigned int>(time(nullptr)));
+    diamantCarre(tableau, maxh);
+
     // enter GLUT event processing cycle
     glutMainLoop();
 
@@ -414,13 +423,13 @@ int main(int argc, char** argv) {
 //
 //void display() {
 //    glClear(GL_COLOR_BUFFER_BIT);
-//    diamantCarre(tableau);
+//    diamantCarre(tableau, maxh);
 //    vector<vector<int>> tableau2 = normaliser255(tableau);
 //    vector<int> tableau_lineaire;
 //    for (const auto& ligne : tableau2) {
 //        tableau_lineaire.insert(tableau_lineaire.end(), ligne.begin(), ligne.end());
 //    }
-//    glDrawPixels(513, 513, GL_LUMINANCE, GL_UNSIGNED_BYTE, tableau_lineaire.data());
+//    glDrawPixels(65, 65, GL_LUMINANCE, GL_UNSIGNED_BYTE, tableau_lineaire.data());
 //    glutSwapBuffers();
 //}
 //
@@ -431,7 +440,7 @@ int main(int argc, char** argv) {
 //
 //    glMatrixMode(GL_PROJECTION);
 //    glLoadIdentity();
-//    gluOrtho2D(0, 513, 0, 513);
+//    gluOrtho2D(0, 65, 0, 65);
 //
 //    glutDisplayFunc(display);
 //    glutMainLoop();
