@@ -351,7 +351,7 @@ int main(int argc, char** argv) {
     glutIdleFunc(affichageScene);
 
     // pour que l'on puisse rester appuye sur les touches
-    glutIgnoreKeyRepeat(1);
+    glutIgnoreKeyRepeat(0);
 
     // Declaration des callbacks clavier
     glutKeyboardFunc(clavier);
