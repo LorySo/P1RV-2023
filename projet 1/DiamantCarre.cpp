@@ -17,7 +17,7 @@ float genererFloat(int max) {
 }
 
 void diamantCarre(vector<vector<float>>& t, int maxh) {
-    int h = t.size(); //hauteur max de la map
+    int h = t.size(); //taille de la map en 2^n + 1
     /*time_t currentTime = time(nullptr);
     srand(static_cast<unsigned int>(currentTime));
     int randomNumber = rand();*/
@@ -39,7 +39,7 @@ void diamantCarre(vector<vector<float>>& t, int maxh) {
     int s = h - 1;
 
     while (s > 1) {
-        int id = s / 2;
+        int id = s / 2; // s puissance de 2
 
         //diamant
         for (int i = id; i + id < h; i += s) {
@@ -61,7 +61,7 @@ void diamantCarre(vector<vector<float>>& t, int maxh) {
                 bruit = id*1.0;
             }
             else {
-                bruit = 0;
+                bruit = 0.0;
             }
 
             for (int y = bruit; y < h; y += s) {
@@ -94,7 +94,7 @@ void diamantCarre(vector<vector<float>>& t, int maxh) {
      randomNumber = rand();*/
 
                 //t[i][y] = som / n + static_cast<float>(randomNumber % (2 * id) - id);
-                t[i][y] = som / n*1.0 + genererFloat(2*id)-id;
+                t[i][y] = som*1.0 / n*1.0 + genererFloat(2*id)-id;
             }
         }
         s = id;

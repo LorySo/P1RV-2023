@@ -83,6 +83,8 @@ void redimensionner(int w, int h) {
 
     // on repasse en mode "matrice modelview"
     glMatrixMode(GL_MODELVIEW);
+
+    glutPostRedisplay();
 }
 
 // Fonction de gestion du deplacement de la camera
@@ -129,11 +131,6 @@ void affichageScene() {
 
     // on echange les tampons d'affichage
     glutSwapBuffers();
-}
-
-void sliderCallback(int value) {
-    maxh = static_cast<float>(value);  // Met à jour la hauteur maximale
-    glutPostRedisplay();  // Indique que la fenêtre doit être redessinée
 }
 
 
@@ -248,7 +245,6 @@ void specialKeyDown(int key, int xx, int yy) {
 }
 
 // Fonction de gestion du clavier (touche speciale relachee)
-//bjr
 void releaseSpecialKey(int key, int x, int y) {
 
     switch (key) {

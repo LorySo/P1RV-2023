@@ -1,14 +1,11 @@
-﻿  BruitPerlin.cpp
-  DiamantCarre.cpp
+﻿  DiamantCarre.cpp
 C:\Users\lory5\Downloads\Github\P1RV-bon-\projet 1\DiamantCarre.cpp(61,27): warning C4244: '=' : conversion de 'double' en 'float', perte possible de données
 C:\Users\lory5\Downloads\Github\P1RV-bon-\projet 1\DiamantCarre.cpp(67,24): warning C4244: 'initialisation' : conversion de 'float' en 'int', perte possible de données
-C:\Users\lory5\Downloads\Github\P1RV-bon-\projet 1\DiamantCarre.cpp(97,59): warning C4244: '=' : conversion de 'double' en '_Ty', perte possible de données
+C:\Users\lory5\Downloads\Github\P1RV-bon-\projet 1\DiamantCarre.cpp(97,63): warning C4244: '=' : conversion de 'double' en '_Ty', perte possible de données
           with
           [
               _Ty=float
           ]
-  Maillage.cpp
   Source.cpp
   Génération de code en cours...
-  LINK : C:\Users\lory5\Downloads\Github\P1RV-bon-\Debug\projet 1.exe introuvable ou non généré par la dernière édition de liens incrémentielle ; édition de liens complète en cours
   projet 1.vcxproj -> C:\Users\lory5\Downloads\Github\P1RV-bon-\Debug\projet 1.exe
